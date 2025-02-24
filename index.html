@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light blue theme */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0277bd;
+        }
+
+        #factDisplay {
+            margin-top: 20px;
+            font-size: 1.2em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Cat Facts</h1>
+        <button id="factButton">Show me a cat fact!</button>
+        <p id="factDisplay"></p>
+    </div>
+    <script>
+        const facts = [
+            "Cats have five toes on their front paws, but only four on the back.",
+            "A group of cats is called a clowder.",
+            "Cats can rotate their ears 180 degrees.",
+            "The world's largest cat measured 48.5 inches long.",
+            "Cats sleep for 70% of their lives.",
+            "A cat's nose print is unique, much like a human's fingerprint.",
+            "Cats have over 20 muscles that control their ears.",
+            "The oldest recorded cat lived to be 38 years old.",
+            "Cats can make over 100 different sounds.",
+            "A cat's whiskers are roughly as wide as its body."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', () => {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.textContent = randomFact;
+                factDisplay.style.opacity = 1;
+            }, 300);
+        });
+    </script>
+</body>
+</html>
